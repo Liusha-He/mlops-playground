@@ -1,0 +1,73 @@
+info:
+  contact: {}
+  description: A Golang and gin API template
+  title: simple-service API
+  version: "1.0"
+paths:
+  /api/v1/auth/login:
+    post:
+      consumes:
+      - application/json
+      description: user login
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: login
+      tags:
+      - auth
+  /api/v1/auth/register:
+    post:
+      consumes:
+      - application/json
+      description: new user register
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: register
+      tags:
+      - auth
+  /api/v1/entry:
+    get:
+      consumes:
+      - application/json
+      description: get all entries
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: entry
+      tags:
+      - entry
+    post:
+      consumes:
+      - application/json
+      description: add new entry
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: entry
+      tags:
+      - entry
+  /api/v1/ping:
+    get:
+      consumes:
+      - application/json
+      description: do ping
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: ping
+      tags:
+      - check
+swagger: "2.0"

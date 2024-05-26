@@ -1,0 +1,6 @@
+mlflow==1.24
+pg8000~=1.23
+psycopg2-binary
+protobuf==3.20.*
+numpy==1.23.4
+SQLAlchemy==1.4.46

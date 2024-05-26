@@ -1,0 +1,52 @@
+version: "3.7"
+
+services:
+  registry-db:
+    image: registry_db
+    container_name: registry_db
+    build:
+      context: .
+      dockerfile: postgres.Dockerfile
+    restart: always
+    expose:
+      - 5432
+    environment:
+      POSTGRES_USER: registry
+      POSTGRES_PASSWORD: password
+    volumes:
+      - mlflow_data:/var/lib/postgresql/data/
+
+  mlflow:
+    image: mlflow
+    container_name: mlflow
+    build:
+      context: .
+      dockerfile: mlflow.Dockerfile
+      args:
+        - MLFLOW_VERSION=1.24.*
+    restart: always
+    expose:
+      - 5000
+    ports:
+      - "5000:5000"
+    depends_on:
+      - registry-db
+    environment:
+      MLFLOW_TRACKING_SERVER_HOST: 0.0.0.0
+      MLFLOW_TRACKING_SERVER_PORT: 5000
+      MLFLOW_ARTIFACT_STORE: data/artifacts
+      MLFLOW_BACKEND_STORE: registry-db
+      POSTGRES_USER: registry
+      POSTGRES_PASSWORD: password
+      POSTGRES_DATABASE: metadata
+      POSTGRES_PORT: 5432
+      WAIT_FOR_IT_TIMEOUT: 60
+    volumes:
+      - ./artifacts:/data/artifacts
+    profiles:
+      - mlflow
+
+
+
+volumes:
+  mlflow_data:

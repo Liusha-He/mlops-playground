@@ -1,0 +1,27 @@
+# permissions for end users to view mydemodeployments.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: mydemodeployment-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: demo-operator
+    app.kubernetes.io/part-of: demo-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: mydemodeployment-viewer-role
+rules:
+- apiGroups:
+  - demoapp.demo.liusha.org
+  resources:
+  - mydemodeployments
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - demoapp.demo.liusha.org
+  resources:
+  - mydemodeployments/status
+  verbs:
+  - get
