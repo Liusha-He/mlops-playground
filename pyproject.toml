@@ -6,7 +6,7 @@ authors = ["liusha"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">3.9,<3.12"
 jupyter = "^1.0.0"
 statsmodels = "^0.14.2"
 arch = "^7.0.0"
