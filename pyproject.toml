@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "risk-analytics"
+version = "0.1.0"
+description = "Risk analytics exercises"
+authors = ["liusha"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+jupyter = "^1.0.0"
+statsmodels = "^0.14.2"
+arch = "^7.0.0"
+seaborn = "^0.13.2"
+yfinance = "^0.2.40"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
