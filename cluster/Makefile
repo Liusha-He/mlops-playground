@@ -19,10 +19,10 @@ grafana:
 	chmod +x grafana/install.sh
 	./grafana/install.sh
 
-cluster: flyte cert-manager seldon prometheus grafana
+run: flyte cert-manager seldon prometheus grafana
 	echo "flyte and seldon are set"
 
-shut-cluster:
+down:
 	flytectl sandbox teardown
 
-.PHONY: mlflow fs seldon flyte shut-cluster down prometheus grafana
+.PHONY: mlflow seldon flyte down prometheus grafana run down

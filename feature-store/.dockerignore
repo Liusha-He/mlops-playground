@@ -1,9 +1,0 @@
-test/
-README.md
-.gitignore
-*.iml
-.github
-.git
-docker-compose.yaml
-*.Dockerfile
-data/

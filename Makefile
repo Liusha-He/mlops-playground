@@ -9,13 +9,11 @@ shut-mlflow:
 
 # setup mlops cluster
 cluster:
-	make -C platform cluster
-
-platform: cluster mlflow
+	make -C cluster run
 	echo "cluster are all set..."
 
 down:
-	make -C platform down
+	make -C cluster down
 
 run:
 	jupyter notebook
@@ -23,4 +21,4 @@ run:
 compile:
 	poetry update
 
-.PHONY: run platform down compile mlflow shut-mlflow
+.PHONY: run cluster down compile mlflow shut-mlflow
