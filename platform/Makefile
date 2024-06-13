@@ -22,13 +22,7 @@ grafana:
 cluster: flyte cert-manager seldon prometheus grafana
 	echo "flyte and seldon are set"
 
-mlflow:
-	sudo docker compose --profile mlflow -f mlflow/docker-compose.yaml up -d
-
 shut-cluster:
 	flytectl sandbox teardown
-
-down: shut-cluster
-	docker compose -f mlflow/docker-compose.yaml down --volumes --remove-orphans
 
 .PHONY: mlflow fs seldon flyte shut-cluster down prometheus grafana
