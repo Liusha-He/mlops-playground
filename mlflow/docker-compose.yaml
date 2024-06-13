@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3"
 
 services:
   registry-db:
@@ -15,6 +15,8 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - mlflow_data:/var/lib/postgresql/data/
+    networks:
+      - mlflow
 
   mlflow:
     image: mlflow
@@ -42,11 +44,13 @@ services:
       POSTGRES_PORT: 5432
       WAIT_FOR_IT_TIMEOUT: 60
     volumes:
-      - ./artifacts:/data/artifacts
-    profiles:
+      - ../registry:/data/artifacts
+    networks:
       - mlflow
 
-
+networks:
+  mlflow:
+    driver: bridge
 
 volumes:
   mlflow_data:

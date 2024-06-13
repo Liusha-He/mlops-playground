@@ -1,8 +1,0 @@
-.idea
-.pytest_cache
-.python-version
-*/__pycache__
-.coverage
-*.iml
-data/
-.coverage

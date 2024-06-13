@@ -1,8 +1,0 @@
-db-data
-simpleApp
-.env
-.gitignore
-.git
-docker-compose.yaml
-README.md
-tests
