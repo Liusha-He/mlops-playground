@@ -1,8 +1,13 @@
 SHELL := /bin/sh
 
+# setup mlflow
 mlflow:
-	make -C platform mlflow
+	docker compose --profile mlflow -f mlflow/docker-compose.yaml up -d
 
+shut-mlflow:
+	docker compose -f mlflow/docker-compose.yaml down --volumes --remove-orphans
+
+# setup mlops cluster
 cluster:
 	make -C platform cluster
 
@@ -18,4 +23,4 @@ run:
 compile:
 	poetry update
 
-.PHONY: run platform down compile
+.PHONY: run platform down compile mlflow shut-mlflow

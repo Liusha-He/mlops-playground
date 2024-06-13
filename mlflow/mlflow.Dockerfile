@@ -5,11 +5,11 @@ EXPOSE 5000
 ARG MLFLOW_VERSION
 ARG SERVER_DIR=/server
 
-COPY ./requirements.txt requirements.txt
+COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt && \
     mkdir -p ${SERVER_DIR}
 
-COPY ./scripts/wait-for-it.sh ${SERVER_DIR}/
+COPY scripts/wait-for-it.sh ${SERVER_DIR}/
 RUN chmod +x ${SERVER_DIR}/wait-for-it.sh
 
 WORKDIR ${SERVER_DIR}
