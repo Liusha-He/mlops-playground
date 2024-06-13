@@ -2,7 +2,7 @@ SHELL := /bin/sh
 
 # setup mlflow
 mlflow:
-	docker compose --profile mlflow -f mlflow/docker-compose.yaml up -d
+	docker compose -f mlflow/docker-compose.yaml up -d
 
 shut-mlflow:
 	docker compose -f mlflow/docker-compose.yaml down --volumes --remove-orphans
