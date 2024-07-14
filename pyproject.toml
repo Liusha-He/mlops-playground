@@ -14,6 +14,8 @@ seaborn = "^0.13.2"
 yfinance = "^0.2.40"
 kapitan = "^0.32.0"
 flytekit = "^1.12.0"
+featureform = "^1.12.6"
+requests = "<2.32.0"
 
 [build-system]
 requires = ["poetry-core"]
