@@ -1,2 +1,0 @@
-CREATE DATABASE metadata;
-CREATE DATABASE workflows;

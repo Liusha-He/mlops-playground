@@ -1,15 +1,9 @@
 SHELL := /bin/sh
 
-flyte:
-	flytectl sandbox start
-
-prometheus:
-	docker compose up --build -d
-
-run: flyte prometheus
-	echo "flyte and seldon are set"
+run:
+	./run-cluster.sh
 
 down:
-	flytectl sandbox teardown
+	flytectl demo teardown
 
-.PHONY: flyte down prometheus run
+.PHONY: down run

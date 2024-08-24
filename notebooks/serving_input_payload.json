@@ -1,0 +1,6 @@
+{
+  "input": {
+    "column_a": "str",
+    "column_b": "int"
+  }
+}
